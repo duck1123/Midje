@@ -4,7 +4,8 @@
   (:use [midje.util.form-utils :only [quoted? translate form-first?]]
         [midje.util.zip :only [skip-down-then-rightmost-leaf]]
         [midje.error-handling.monadic :only [user-error-report-form validate]])
-  (:require [clojure.zip :as zip]))
+  (:require [clojure.zip :as zip])
+  (:import java.io.Writer))
 
 
 (defn metaconstant-symbol? [symbol-or-form]
