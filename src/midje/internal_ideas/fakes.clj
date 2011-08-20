@@ -22,7 +22,7 @@
     [midje.ideas.arrow-symbols])
   (:require [clojure.zip :as zip]))
 
-;;; Questions to ask of fakes // accessors
+;;; Questions to ask of fakes // accessors
 
 (defn implements-a-fake? [function] (:midje/faked-function (meta function)))
 (defn function-fake? [form] (form-first? form "fake"))
@@ -31,7 +31,7 @@
 (defn fake-form-funcall [[fake funcall => value & overrides]] funcall)
 (defn fake-form-funcall-arglist [fake-form] (rest (fake-form-funcall fake-form)))
 
-;;; Creation
+;;; Creation
 
 (defn fn-that-implements-a-fake [function]
   (vary-meta function assoc :midje/faked-function true))
@@ -95,7 +95,7 @@
           '(:background :background)
           '(:times (range 0))))
 
-;;; Binding
+;;; Binding
 
 (defmulti matches-call? (fn [fake faked-function args]
                           (:type fake)))
@@ -153,7 +153,7 @@
 (defmacro with-installed-fakes [fakes & forms]
   `(with-altered-roots (binding-map ~fakes) ~@forms))
 
-;;; Checking
+;;; Checking
 
 (defn fake-count [fake] (deref (:count-atom fake)))
 
@@ -190,7 +190,7 @@
 
 
 
-;; Folded prerequisites
+;; Folded prerequisites
 
 ;; Note that folded prerequisites are in semi-sweet-style. (That is, they can only
 ;; be recognized after sweet style has been converted to semi-sweet.)
