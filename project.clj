@@ -1,4 +1,4 @@
-(defproject midje "1.3-alpha1"
+(defproject net.kronkltd/midje "1.3-alpha2-SNAPSHOT"
   :description "A TDD library for Clojure, with an emphasis on mocks"
   :dependencies [[org.clojure/clojure "1.3.0-RC0"]
                  [org.clojure.contrib/combinatorics "1.3.0-alpha4"]
