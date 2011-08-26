@@ -9,8 +9,8 @@
         [clojure.pprint :only (cl-format)]
         [clojure.contrib.combinatorics :only [permutations]]
         [midje.util.form-utils :only [regex? tack-on-to record? classic-map?]]
-	[midje.checkers util extended-equality chatty defining]
-        [clojure.contrib.str-utils :only [str-join]]))
+        [midje.checkers util extended-equality chatty defining])
+  (:require [clojure.string :as string]))
 
 (def looseness-modifiers #{:in-any-order :gaps-ok})
 
@@ -103,10 +103,10 @@
   (fn [midje-classification elements] midje-classification))
 
 (defmethod collection-string ::map [midje-classification elements]
-   (str "{" (str-join ", " (sort elements)) "}"))
+   (str "{" (string/join ", " (sort elements)) "}"))
 
 (defmethod collection-string ::not-map [midje-classification elements]
-   (str "[" (str-join " " elements) "]"))
+   (str "[" (string/join " " elements) "]"))
 ;;-
 
 (defmulti #^{:private true} best-actual-match
@@ -118,7 +118,7 @@
 
 (defmethod best-actual-match ::map [midje-classification comparison]
   (str "Best match found: {"
-       (str-join ", "
+       (string/join ", "
                       (sort (map (fn [[k v]] (str (pr-str k) " " (pr-str v)))
                                     (:actual-found comparison))))
        "}."))

@@ -2,18 +2,18 @@
 
 (ns midje.ideas.tabular
   (:use 
-    [clojure.contrib.str-utils :only [str-join]]
     [midje.error-handling.monadic :only [error-let user-error-report-form validate]]
     [midje.internal-ideas.file-position :only [form-with-copied-line-numbers]]
     [midje.util.form-utils :only [ordered-zipmap translate pairs]]
     [midje.util.zip :only [skip-to-rightmost-leaf]]
     [midje.internal-ideas.expect :only [expect?]]
     [midje.ideas.arrows :only [above-arrow-sequence__add-key-value__at-arrow]])
-(:require [midje.util.unify :as unify]))
+  (:require [clojure.string :as string]
+            [midje.util.unify :as unify]))
 
 (defn- binding-note [ordered-binding-map]
   (let [entries (map (fn [[variable value]] (str variable " " (pr-str value))) ordered-binding-map)]
-    (str "{" (str-join ", " entries) "}")))
+    (str "{" (string/join ", " entries) "}")))
 
 (defn add-one-binding-note [expect-containing-form ordered-binding-map]
   (translate expect-containing-form

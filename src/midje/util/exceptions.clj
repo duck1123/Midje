@@ -1,7 +1,7 @@
 ;; -*- indent-tabs-mode: nil -*-
 
 (ns midje.util.exceptions
-  (:use [clojure.contrib.str-utils :only [str-join]])) 
+  (:require [clojure.string :as string])) 
 
 (defn stacktrace-as-strings [ex]
   (map (fn [elt] (.toString elt)) (.getStackTrace ex)))
@@ -28,4 +28,4 @@
 	     (without-midje-or-clojure-strings (stacktrace-as-strings ex)))))
 
 (defn friendly-exception-text [ex prefix]
-  (str-join (System/getProperty "line.separator") (friendly-exception-lines ex prefix)))
+  (string/join (System/getProperty "line.separator") (friendly-exception-lines ex prefix)))

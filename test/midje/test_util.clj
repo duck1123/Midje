@@ -3,9 +3,7 @@
 (ns midje.test-util
   (:use [clojure.test])
   (:use midje.checkers)
-  (:use [clojure.contrib.string :only [substring?]])
-  (:use [clojure.set :only [subset?]])
-)
+  (:use [clojure.set :only [subset?]]))
 
 (defmacro testable-privates [namespace & symbols]
   (let [make-form (fn [symbol] `(def ~symbol (intern '~namespace '~symbol)))
