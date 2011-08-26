@@ -8,7 +8,7 @@
     (let [var ( (ns-publics namespace) sym)]
       (let [sym (with-meta sym (assoc (meta var) :ns *ns*))]
         (if (.hasRoot var)
-          (intern *ns* sym (.getRoot var))
+          (intern *ns* sym (.getRawRoot var))
           (intern *ns* sym))))))
 
 (defmacro republish [namespace & symbols]
