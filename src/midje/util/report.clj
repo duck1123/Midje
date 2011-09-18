@@ -1,17 +1,20 @@
 ;; -*- indent-tabs-mode: nil -*-
 
-(when (= (class clojure.test/report) clojure.lang.MultiFn)
-  (eval
-   '(do (require 'clojure.test)
-        (ns clojure.test)
-        (defonce old-report clojure.test/report))))
-
 (ns midje.util.report
   (:use clojure.test
         [clojure.pprint :only (cl-format)]
         [midje.util.form-utils :only (flatten-and-remove-nils)]
         [midje.util.exceptions :only (friendly-exception-text)]
         [midje.checkers.util :only (captured-exception? captured-exception-value)]))
+
+
+;; (when (= (class clojure.test/report) clojure.lang.MultiFn)
+;;   (eval
+;;    '(do (require 'clojure.test)
+;;         (ns clojure.test)
+;;         (defonce old-report clojure.test/report))))
+
+
 
 (def ^{:dynamic true} *renderer* println)
 
@@ -135,12 +138,12 @@
 (defn render [m]
   (doall (map *renderer* (flatten-and-remove-nils (report-strings m)))))
 
-(defmethod clojure.test/old-report :default [m]
+(defmethod clojure.test/report :default [m]
    (inc-report-counter :fail)
    (note-failure-in-fact)
    (render m))
 
-(defmethod clojure.test/old-report :future-fact [m]
+(defmethod clojure.test/report :future-fact [m]
    (render m))
 
 
