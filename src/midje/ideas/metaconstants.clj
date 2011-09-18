@@ -66,7 +66,7 @@
       (intern *ns* metaconstant (Metaconstant. metaconstant {})))
     metaconstants))
 
-(def *metaconstant-counts*)
+(def ^{:dynamic true} *metaconstant-counts*)
 
 (defmacro with-fresh-generated-metaconstant-names [& forms]
   `(binding [*metaconstant-counts* (atom {})]
