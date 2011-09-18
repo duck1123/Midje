@@ -9,5 +9,4 @@
                  [ordered "0.3.0"]
                  [unifycle "0.5.0"]]
   :exclusions [org.clojure/contrib
-               org.clojure/clojure-contrib]
-  :aot [midje.sweet])
+               org.clojure/clojure-contrib])
