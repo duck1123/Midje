@@ -2,24 +2,24 @@
 
 (ns midje.internal-ideas.fakes
   (:use
-    [clojure.contrib.seq :only [find-first separate]]
-    [clojure.test :only [report]]
-    [midje.checkers :only [exactly]]
-    [midje.checkers.defining :only [checker? checker-makers]]
-    [midje.internal-ideas.expect :only [expect? up-to-full-expect-form]]
-    [midje.util.form-utils :only [form-first?
+    [clojure.contrib.seq :only (find-first separate)]
+    [clojure.test :only (report)]
+    [midje.checkers :only (exactly)]
+    [midje.checkers.defining :only (checker? checker-makers)]
+    [midje.internal-ideas.expect :only (expect? up-to-full-expect-form)]
+    [midje.util.form-utils :only (form-first?
                                   translate
                                   map-difference
-                                  hash-map-duplicates-ok]]
-    [midje.ideas.metaconstants :only [metaconstant-for-form
-                                      with-fresh-generated-metaconstant-names]]
-    [midje.checkers.extended-equality :only [extended-= extended-list-= extended-fn?]]
-    [midje.internal-ideas.file-position :only [user-file-position]]
-    [midje.util.thread-safe-var-nesting :only [namespace-values-inside-out 
+                                  hash-map-duplicates-ok)]
+    [midje.ideas.metaconstants :only (metaconstant-for-form
+                                      with-fresh-generated-metaconstant-names)]
+    [midje.checkers.extended-equality :only (extended-= extended-list-= extended-fn?)]
+    [midje.internal-ideas.file-position :only (user-file-position)]
+    [midje.util.thread-safe-var-nesting :only (namespace-values-inside-out
                                                with-pushed-namespace-values
-                                               with-altered-roots]]
-    [midje.internal-ideas.wrapping :only [with-wrapping-target]]
-    [midje.ideas.arrow-symbols])
+                                               with-altered-roots)]
+    [midje.internal-ideas.wrapping :only (with-wrapping-target)]
+    midje.ideas.arrow-symbols)
   (:require [clojure.zip :as zip]))
 
 ;;; Questions to ask of fakes // accessors

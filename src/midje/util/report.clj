@@ -9,9 +9,9 @@
 (ns midje.util.report
   (:use clojure.test
         [clojure.pprint :only (cl-format)]
-        [midje.util.form-utils :only [flatten-and-remove-nils]]
-        [midje.util.exceptions :only [friendly-exception-text]]
-        [midje.checkers.util :only [captured-exception? captured-exception-value]]))
+        [midje.util.form-utils :only (flatten-and-remove-nils)]
+        [midje.util.exceptions :only (friendly-exception-text)]
+        [midje.checkers.util :only (captured-exception? captured-exception-value)]))
 
 (def ^{:dynamic true} *renderer* println)
 

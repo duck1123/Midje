@@ -3,13 +3,13 @@
 ;; Note: checkers need to be exported in ../checkers.clj
 
 (ns midje.checkers.collection
-  (:use [clojure.set :only [union]]
-        [clojure.contrib.seq :only [rotations]]
-        [clojure.contrib.def :only [defmacro- defvar-]]
+  (:use [clojure.set :only (union)]
+        [clojure.contrib.seq :only (rotations)]
+        [clojure.contrib.def :only (defmacro- defvar-)]
         [clojure.pprint :only (cl-format)]
-        [clojure.contrib.combinatorics :only [permutations]]
-        [midje.util.form-utils :only [regex? tack-on-to record? classic-map?]]
-        [midje.checkers util extended-equality chatty defining])
+        [clojure.contrib.combinatorics :only (permutations)]
+        [midje.util.form-utils :only (regex? tack-on-to record? classic-map?)]
+        (midje.checkers util extended-equality chatty defining))
   (:require [clojure.string :as string]))
 
 (def looseness-modifiers #{:in-any-order :gaps-ok})

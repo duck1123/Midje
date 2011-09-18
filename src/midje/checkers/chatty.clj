@@ -1,9 +1,9 @@
 ;; -*- indent-tabs-mode: nil -*-
 
 (ns midje.checkers.chatty
-  (:use [midje.checkers util]
-        [midje.checkers.defining :only [as-checker]]
-        [midje.util.form-utils :only [pairs quoted?]]))
+  (:use (midje.checkers util)
+        [midje.checkers.defining :only (as-checker)]
+        [midje.util.form-utils :only (pairs quoted?)]))
 
 ;; Note: checkers need to be exported in ../checkers.clj
 

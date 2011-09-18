@@ -1,6 +1,6 @@
 ;; -*- indent-tabs-mode: nil -*-
 (ns midje.checkers.util
-  (:use [midje.util.form-utils :only [classic-map?]]))
+  (:use [midje.util.form-utils :only (classic-map?)]))
 
 (defn named [name expected function]
   "Adds a string name that looks like a function call to

@@ -2,22 +2,20 @@
 
 (ns midje.sweet
   (:use clojure.test
-        [clojure.contrib.ns-utils :only [immigrate]])
-         
-  (:use midje.production-mode
+        [clojure.contrib.ns-utils :only (immigrate)]
+        midje.production-mode
         midje.error-handling.monadic
         midje.util.debugging
-        [midje.util.form-utils :only [reader-line-number]]
-        [midje.util.exceptions :only [user-error-exception-lines]]
-        [midje.internal-ideas.wrapping :only [put-wrappers-into-effect]]
-        [midje.internal-ideas.file-position :only [set-fallback-line-number-from]]
-        [midje.ideas.tabular :only [tabular*]]
-        [midje.ideas.facts :only [midjcoexpand
-                                  complete-fact-transformation]])
-  (:require [midje.ideas.background :as background])
-  (:require midje.checkers)
-  (:require [midje.util.report :as report])
-)
+        [midje.util.form-utils :only (reader-line-number)]
+        [midje.util.exceptions :only (user-error-exception-lines)]
+        [midje.internal-ideas.wrapping :only (put-wrappers-into-effect)]
+        [midje.internal-ideas.file-position :only (set-fallback-line-number-from)]
+        [midje.ideas.tabular :only (tabular*)]
+        [midje.ideas.facts :only (midjcoexpand
+                                  complete-fact-transformation)])
+  (:require [midje.ideas.background :as background]
+            midje.checkers
+            [midje.util.report :as report]))
 (immigrate 'midje.unprocessed)
 (immigrate 'midje.semi-sweet)
 (intern *ns* 'before #'background/before)

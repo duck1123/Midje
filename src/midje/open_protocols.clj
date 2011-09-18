@@ -1,8 +1,8 @@
 ;; -*- indent-tabs-mode: nil -*-
 
 (ns midje.open-protocols
-  (:use [midje.production-mode :only [user-desires-checking?]]
-        [midje.internal-ideas.fakes :only [implements-a-fake?]]))
+  (:use [midje.production-mode :only (user-desires-checking?)]
+        [midje.internal-ideas.fakes :only (implements-a-fake?)]))
 
 ;;; The strategy for open protocols is to rewrite each function defined in the
 ;;; deftype/defrecord so that it checks whether its corresponding symbol is

@@ -4,11 +4,11 @@
   (:use clojure.test
         midje.internal-ideas.fakes
         midje.internal-ideas.file-position
-        [midje.util debugging form-utils namespace]
-        [midje.error-handling monadic semi-sweet-errors]
-        [midje.production-mode]
-        [clojure.pprint]
-        [clojure.contrib.ns-utils :only [immigrate]]))
+        (midje.util debugging form-utils namespace)
+        (midje.error-handling monadic semi-sweet-errors)
+        midje.production-mode
+        clojure.pprint
+        [clojure.contrib.ns-utils :only (immigrate)]))
 (immigrate 'midje.unprocessed)
 (immigrate 'midje.ideas.arrow-symbols)
 

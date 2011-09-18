@@ -1,9 +1,8 @@
 ;; -*- indent-tabs-mode: nil -*-
 
 (ns midje.checkers.extended-equality
-  (:use
-    [midje.checkers.chatty :only [chatty-checker-falsehood?]]
-    [midje.util.form-utils :only [classic-map? pairs record? regex?]]))
+  (:use [midje.checkers.chatty :only (chatty-checker-falsehood?)]
+        [midje.util.form-utils :only (classic-map? pairs record? regex?)]))
 
 (defn extended-fn? [x]
   (or (fn? x)
